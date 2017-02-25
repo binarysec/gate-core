@@ -1,0 +1,25 @@
+{
+  "name": "gateCore",
+  "version": "2.0.0",
+  "description": "Gatejs Core Engine",
+  "author": "Michael Vergoz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binarysec/gateCore.git"
+  },
+  "keywords": [
+    "reverse",
+    "forward",
+    "proxy"
+  ],
+  "main": "./index.js",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/binarysec/gate/issues"
+  },
+  "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "homepage": "https://www.gatejs.org",
+  "license": "GPLv3"
+}
