@@ -212,7 +212,9 @@ ipc.spawnSlave = function(gjs) {
 		});
 	});
 
-
+	client.on('error', function(e) {
+		console.log("IPC Client error: "+e.message);
+	});
 
 	ipc.on('ping', function(socket, data) {
 		ipc.send('RFW', 'pong', data.msg);
