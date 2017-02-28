@@ -20,6 +20,7 @@
 
 #include <node.h>
 #include "nreg_wrap.hh"
+#include "node_v8_macros.hh"
 
 #include <set>
 #include <algorithm>
@@ -70,12 +71,12 @@ void CoreNregWrap::NewInstance(const FunctionCallbackInfo<Value>& args) {
 	if(args.Length() == 1) {
 		Handle<Value> argv[1] = { args[0] };
 		Local<Function> cons = Local<Function>::New(isolate, constructor);
-		instance = cons->NewInstance(1, argv);
+		instance = NVM_NEW_INSTANCE(cons, isolate, 1, argv);
 	}
 	else {
 		Handle<Value> argv[0] = { };
 		Local<Function> cons = Local<Function>::New(isolate, constructor);
-		instance = cons->NewInstance(0, argv);
+		instance = NVM_NEW_INSTANCE(cons, isolate, 0, argv);
 	}
 	
 	args.GetReturnValue().Set(instance);

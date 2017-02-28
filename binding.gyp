@@ -13,8 +13,8 @@
 				"src/nreg_wrap.hh",
 				"src/unicode.cc",
 				"src/unicode.hh",
+				"src/node_v8_macros.hh",
 			],
 		},
 	],
 }
-

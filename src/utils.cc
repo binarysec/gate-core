@@ -20,6 +20,7 @@
 
 #include <node.h>
 #include "utils.hh"
+#include "node_v8_macros.hh"
 
 #include <ctime>
 #include <string>
@@ -45,7 +46,7 @@ void CoreUtils::dateToStr(const FunctionCallbackInfo<Value>& args) {
 	if (args.Length() == 1 || args.Length() == 2) {
 		if(args.Length() == 1) {
 			if(args[0]->IsNumber()) {
-				double tstamp = args[0]->ToNumber()->Value();
+				double tstamp = NVM_TO_NUMBER_DOUBLE(args[0], isolate);
 				unix_ts = tstamp / 1000;
 			}
 			else if(args[0]->IsString()) {
@@ -56,7 +57,7 @@ void CoreUtils::dateToStr(const FunctionCallbackInfo<Value>& args) {
 		}
 		else {
 			if(args[0]->IsNumber() && args[1]->IsString()) {
-				double tstamp = args[0]->ToNumber()->Value();
+				double tstamp = NVM_TO_NUMBER_DOUBLE(args[0], isolate);
 				String::Utf8Value tmp(args[1]->ToString());
 				
 				unix_ts = tstamp / 1000;
